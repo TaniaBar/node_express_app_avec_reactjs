@@ -1,4 +1,4 @@
-// connexion à la base des données
+// database connection
 const mysql = require('mysql');
 console.log('Get connection ...');
 
