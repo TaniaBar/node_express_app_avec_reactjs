@@ -72,8 +72,18 @@ table th:last-child {
 
 .linkAddRestaurant {
   color: rgb(192, 36, 36);
+  color: rgb(9, 105, 89);
   margin-top: 20px;
   text-transform: uppercase;
+  margin-right: 30px;
+}
+
+.linkAddEmployee {
+  color: rgb(192, 36, 36);
+  color: rgb(9, 105, 89);
+  margin-top: 20px;
+  text-transform: uppercase;
+  margin-left: 30px;
 }
 
 .card {
@@ -88,4 +98,22 @@ table th:last-child {
 .card-title {
   font-size: 1.4em;
   color: #282c34;
+}
+
+.btn-danger {
+  margin: 5px;
+  color: rgb(138, 13, 13);
+  border-color: rgb(138, 13, 13);
+  border-width: 1px;
+  border-radius: 5px;
+  font-size: 1em;
+}
+
+.btn-primary {
+  margin: 5px;
+  color: rgb(9, 105, 89);
+  border-color: rgb(9, 105, 89);
+  border-width: 1px;
+  border-radius: 5px;
+  font-size: 1em;
 }

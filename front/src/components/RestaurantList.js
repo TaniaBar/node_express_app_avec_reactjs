@@ -22,7 +22,8 @@ const RestaurantList = () => {
         <div className='restaurant-list'>
             <h1>Restaurant List</h1>
             <Link to="/add-restaurant" className='linkAddRestaurant'>Add Restaurant</Link>
-            
+            <Link to="/add-employee" className='linkAddEmployee'>Add Employee</Link>
+
             {/* <table>
                 <thead>
                     <tr>
