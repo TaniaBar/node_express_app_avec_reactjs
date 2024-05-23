@@ -1,5 +1,6 @@
 import React, { useState} from "react";
 import axios from "axios";
+import './AddRestaurant.css';
 
 const AddRestaurant = () => {
     const [name, setName] = useState('');
@@ -17,30 +18,32 @@ const AddRestaurant = () => {
     }
 
     return (
-        <form onSubmit={handleSubmit}>
-            <h1>Add Restaurant</h1>
-            <div>
-                <label>Name: </label>
-                <input type="text" value={name} onChange={(e) => setName(e.target.value)}></input>
-            </div>
-            <div>
-                <label>City: </label>
-                <input type="text" value={city} onChange={(e) =>setCity(e.target.value)}></input>
-            </div>
-            <div>
-                <label>Nb couverts: </label>
-                <input type="number" value={nbcouverts} onChange={(e) =>setNbcouverts(e.target.value)}></input>
-            </div>
-            <div>
-                <label>Terrasse: </label>
-                <input type="text" value={terrasse} onChange={(e) =>setTerrasse(e.target.value)}></input>
-            </div>
-            <div>
-                <label>Parking: </label>
-                <input type="text" value={parking} onChange={(e) =>setParking(e.target.value)}></input>
-            </div>
-            <button type="submit">Add Restaurant</button>
-        </form>
+        <div className="div-form">
+            <form onSubmit={handleSubmit} className="form-container">
+                <h1 className="form-title">Add Restaurant</h1>
+                <div className="form-group">
+                    <label>Name: </label>
+                    <input type="text" value={name} onChange={(e) => setName(e.target.value)}></input>
+                </div>
+                <div className="form-group">
+                    <label>City: </label>
+                    <input type="text" value={city} onChange={(e) =>setCity(e.target.value)}></input>
+                </div>
+                <div className="form-group">
+                    <label>Nb couverts: </label>
+                    <input type="number" value={nbcouverts} onChange={(e) =>setNbcouverts(e.target.value)}></input>
+                </div>
+                <div className="form-group">
+                    <label>Terrasse: </label>
+                    <input type="text" value={terrasse} onChange={(e) =>setTerrasse(e.target.value)}></input>
+                </div>
+                <div className="form-group">
+                    <label>Parking: </label>
+                    <input type="text" value={parking} onChange={(e) =>setParking(e.target.value)}></input>
+                </div>
+                <button type="submit" className="btn-form-add-restaurant">Add Restaurant</button>
+            </form>
+        </div>
     );
 }
 
