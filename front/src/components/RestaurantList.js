@@ -5,19 +5,41 @@ const RestaurantList = () => {
     const [restaurants, setRestaurants] = useState([]);
 
     useEffect(() => {
-        axios.get('/restaurant')
-        .then(response => setRestaurants(response.data))
-        .catch(error => console.error(error));
+        const fetchRestaurants = async () => {
+            try {
+                const response = await axios.get('/restaurant');
+                setRestaurants(response.data);
+            } catch (error) {
+                console.error('Error fetching restaurants: ', error);
+            }
+        }
+        fetchRestaurants();
     }, []);
 
     return (
-        <div>
+        <div className='restaurant-list'>
             <h1>Restaurant List</h1>
-            <ul>
+            {/* <ul>
                 {restaurants.map(restaurants => (
                     <li key={restaurants.id}>{restaurants.name} - {restaurants.city}</li>
                 ))}
-            </ul>
+            </ul> */}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Name</th>
+                        <th>City</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {restaurants.map(restaurants => (
+                        <tr key={restaurants.id}>
+                            <td>{restaurants.name}</td>
+                            <td>{restaurants.city}</td>
+                        </tr>
+                    ))}
+                </tbody>
+            </table>
         </div>
     );
 }

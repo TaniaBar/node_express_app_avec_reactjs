@@ -36,3 +36,36 @@
     transform: rotate(360deg);
   }
 }
+
+.restaurant-list {
+  margin: 20px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+table th,
+table td {
+  padding: 8px;
+  text-align: left;
+}
+
+table th {
+  border-bottom: 2px solid #ccc; /* Linea sottile sotto l'intestazione delle colonne */
+}
+
+table td {
+  border-bottom: 1px solid #ddd; /* Linea sottile tra le righe */
+}
+
+table td:first-child,
+table th:first-child {
+  border-left: 2px solid #ccc; /* Bordo sinistro tra le colonne */
+}
+
+table td:last-child,
+table th:last-child {
+  border-right: 2px solid #ccc; /* Bordo destro tra le colonne */
+}

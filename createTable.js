@@ -1,6 +1,7 @@
 const connection = require('./connexion');
 const mysql = require('mysql');
 
+
 // creation table Restaurants
     // si la table exist on la efface avant de la recréer
     let sql1 = "DROP TABLE IF EXISTS Restaurants";
