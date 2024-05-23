@@ -1,5 +1,6 @@
 import React, {useState, useEffect } from 'react';
 import axios from 'axios';
+import { Link } from 'react-router-dom';
 
 const RestaurantList = () => {
     const [restaurants, setRestaurants] = useState([]);
@@ -19,6 +20,7 @@ const RestaurantList = () => {
     return (
         <div className='restaurant-list'>
             <h1>Restaurant List</h1>
+            <Link to="/add-restaurant" className='linkAddRestaurant'>Add Restaurant</Link>
             {/* <ul>
                 {restaurants.map(restaurants => (
                     <li key={restaurants.id}>{restaurants.name} - {restaurants.city}</li>
@@ -40,6 +42,7 @@ const RestaurantList = () => {
                     ))}
                 </tbody>
             </table>
+            
         </div>
     );
 }
