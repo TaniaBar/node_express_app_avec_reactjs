@@ -1,6 +1,7 @@
 import React, { useState} from "react";
 import axios from "axios";
 import './AddRestaurant.css';
+import { Link } from "react-router-dom";
 
 const AddRestaurant = () => {
     const [name, setName] = useState('');
@@ -43,6 +44,7 @@ const AddRestaurant = () => {
                 </div>
                 <button type="submit" className="btn-form-add-restaurant">Add Restaurant</button>
             </form>
+            <Link to="/" className="link-return">Return to Restaurant List</Link>
         </div>
     );
 }
