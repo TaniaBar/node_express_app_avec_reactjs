@@ -75,3 +75,17 @@ table th:last-child {
   margin-top: 20px;
   text-transform: uppercase;
 }
+
+.card {
+  border-style: solid;
+  border-color: grey;
+  border-width: 1px;
+  margin: 20px;
+  padding-bottom: 15px;
+  border-radius: 5px;
+}
+
+.card-title {
+  font-size: 1.4em;
+  color: #282c34;
+}
