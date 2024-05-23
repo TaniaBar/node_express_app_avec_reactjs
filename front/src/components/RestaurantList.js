@@ -14,7 +14,7 @@ const RestaurantList = () => {
         <div>
             <h1>Restaurant List</h1>
             <ul>
-                {restaurants.map(restaurant => (
+                {restaurants.map(restaurants => (
                     <li key={restaurants.id}>{restaurants.name} - {restaurants.city}</li>
                 ))}
             </ul>
