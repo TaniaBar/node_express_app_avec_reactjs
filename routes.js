@@ -7,6 +7,11 @@ const app = express();
 // middleware pour que node puisse inerpreter le body json envoyé par Postman
 app.use(express.json());
 
+// Route Home
+app.get('/', (req, res) => {
+    res.send('Welcome to the Node.js & Express server');
+});
+
 // route /POST/restaurant
 app.post('/restaurant', (req, res) => {
     let sql = "INSERT INTO restaurants (name, city, nbcouverts, terrasse, parking) "
