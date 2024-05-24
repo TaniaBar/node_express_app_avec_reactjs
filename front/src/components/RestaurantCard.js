@@ -23,7 +23,7 @@ const RestaurantCard = ({ restaurants }) => {
     }
 
     const handleEdit = () => {
-        navigate.push(`/edit-restaurant/${restaurants.id}`);
+        navigate(`/edit-restaurant/${restaurants.id}`);
     };
 
     function handleDeleteEmployee(employeeId) {
