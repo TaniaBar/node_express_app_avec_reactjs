@@ -116,7 +116,7 @@ app.delete('/restaurant/:id', (req, res) => {
 })
     
 // Route POST/restaurant/:idResto/employe
-app.post('/restaurant/:id/employes', (req, res) => {
+app.post('/restaurant/:id/employees', (req, res) => {
     const id =  parseInt(req.params.id);
     const {first_name, last_name, hire_date} = req.body;
 
@@ -134,7 +134,7 @@ app.post('/restaurant/:id/employes', (req, res) => {
 });
 
 // Route GET/restaurant/:idResto/employes
-app.get('/restaurant/:id/employes', (req, res) => {
+app.get('/restaurant/:id/employees', (req, res) => {
     const id = parseInt(req.params.id);
 
     let getEmployees = "SELECT id, first_name, last_name, DATE_FORMAT(hire_date, '%d-%m-%Y') as hire_date, restaurant_id FROM employes WHERE restaurant_id = ? ";
@@ -151,7 +151,7 @@ app.get('/restaurant/:id/employes', (req, res) => {
 });
 
 // Route GET/restaurant/:idResto/employes/:idEmploye
-app.get('/restaurant/:id/employes/:idEmploye', (req, res) => {
+app.get('/restaurant/:id/employees/:idEmployee', (req, res) => {
     const id = parseInt(req.params.id);
     const idEmployee = parseInt(req.params.idEmploye);
 
@@ -169,10 +169,10 @@ app.get('/restaurant/:id/employes/:idEmploye', (req, res) => {
 });
 
 // Route PUT/restaurant/:idResto/employes/:idEmploye
-app.put('/restaurant/:id/employes/:idEmploye', (req, res) => {
+app.put('/restaurant/:id/employees/:idEmployee', (req, res) => {
     const id = parseInt(req.params.id);
     const { first_name, last_name, hire_date} = req.body;
-    const idEmployee = parseInt(req.params.idEmploye);
+    const idEmployee = parseInt(req.params.idEmployee);
 
     const updateEmployee = `UPDATE employes SET first_name='${first_name}', last_name='${last_name}', hire_date='${hire_date}' WHERE id=${idEmployee}`;
 
@@ -187,8 +187,8 @@ app.put('/restaurant/:id/employes/:idEmploye', (req, res) => {
 });
 
 // Route DELETE/restaurant/:idResto/employes/:idEmploye
-app.delete('/restaurant/:id/employes/:idEmploye', (req, res) => {
-    const idEmployee = parseInt(req.params.idEmploye);
+app.delete('/restaurant/:id/employees/:idEmployee', (req, res) => {
+    const idEmployee = parseInt(req.params.idEmployee);
 
     let deleteEmployee = `DELETE FROM employes WHERE id=${idEmployee}`;
 

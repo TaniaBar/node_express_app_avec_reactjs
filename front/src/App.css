@@ -117,3 +117,7 @@ table th:last-child {
   border-radius: 5px;
   font-size: 1em;
 }
+
+.list-group {
+  list-style-type: none;
+}
