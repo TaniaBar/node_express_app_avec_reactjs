@@ -19,7 +19,7 @@ const AddEmployee = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         const newEmployee = { first_name, last_name, hire_date, restaurant_id };
-        axios.post('/employee', newEmployee)
+        axios.post('/restaurant/:id/employees', newEmployee)
         .then(response => console.log(response.data))
         .catch(error => console.error(error));
     }

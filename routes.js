@@ -115,22 +115,22 @@ app.delete('/restaurant/:id', (req, res) => {
     res.status(200).send("Restaurant and associated employees deleted successfully 🎉");
 })
     
-// Route POST/restaurant/:idResto/employe
+// Route POST/restaurant/:idResto/employee
 app.post('/restaurant/:id/employees', (req, res) => {
-    const id =  parseInt(req.params.id);
-    const {first_name, last_name, hire_date} = req.body;
+    
+    const { first_name, last_name, hire_date, restaurant_id } = req.body;
 
-    let addEmployees = `INSERT INTO employes (first_name, last_name, hire_date, restaurant_id) VALUES ('${first_name}', '${last_name}', '${hire_date}', '${id}' )`;
+    if (!first_name || !last_name || !hire_date || !restaurant_id) {
+        return res.status(400).send({ error: "All fields are required" });
+    }
 
-    connection.query(addEmployees, function(err, results) {
+    const query = 'INSERT INTO Employes (first_name, last_name, hire_date, restaurant_id) VALUES (?, ?, ?, ?)';
+    connection.query(query, [first_name, last_name, hire_date, restaurant_id], (err, results) => {
         if (err) {
-            console.log(err);
-            res.status(500).send("Error insert an employee");
-        } else {
-            res.status(200).send("Employee inserted successfully 🎉");
+            return res.status(500).send(err);
         }
+        res.status(201).send({ message: "Employee added successfully", employeeId: results.insertId });
     });
-    res.status(200);
 });
 
 // Route GET/restaurant/:idResto/employes
