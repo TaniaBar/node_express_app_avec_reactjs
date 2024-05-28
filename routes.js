@@ -150,10 +150,10 @@ app.get('/restaurant/:id/employees', (req, res) => {
     res.status(200);
 });
 
-// Route GET/restaurant/:idResto/employes/:idEmploye
+// Route GET/restaurant/:idResto/employes/:idEmployee
 app.get('/restaurant/:id/employees/:idEmployee', (req, res) => {
     const id = parseInt(req.params.id);
-    const idEmployee = parseInt(req.params.idEmploye);
+    const idEmployee = parseInt(req.params.idEmployee);
 
     let oneEmployee = "SELECT id, first_name, last_name, DATE_FORMAT(hire_date, '%d-%m-%Y') as hire_date, restaurant_id FROM employes WHERE id = ?";
 
@@ -202,5 +202,7 @@ app.delete('/restaurant/:id/employees/:idEmployee', (req, res) => {
     });
     res.status(200);
 });
+
+
 
 module.exports = app;
