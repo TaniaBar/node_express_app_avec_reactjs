@@ -3,7 +3,7 @@ import axios from "axios";
 import { Link, useParams } from 'react-router-dom';
 
 const EditEmployee = () => {
-    const { id } = useParams();
+    const { idEmployee } = useParams();
     const [employee, setEmployee] = useState({
         firstName: '',
         lastName: '',
@@ -12,8 +12,8 @@ const EditEmployee = () => {
     });
 
     useEffect(() => {
-        if (id) {
-            axios.get(`/employees/${id}`)
+        if (idEmployee) {
+            axios.get(`/employees/${idEmployee}`)
                 .then(response => {
                     const employeeData = response.data;
                     setEmployee({
@@ -27,8 +27,8 @@ const EditEmployee = () => {
         } else {
             console.error("No employee ID found in URL parameters.");
         }
-    }, [id]);
-
+    }, [idEmployee]);
+    console.log("idEmployee:", idEmployee);
     const handleChange = (e) => {
         const { name, value } = e.target;
         setEmployee(prevState => ({
@@ -39,7 +39,7 @@ const EditEmployee = () => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        axios.put(`/employees/${id}`, employee)
+        axios.put(`/restaurant/:id/employees/${idEmployee}`, employee)
             .then(response => {
                 alert('Employee updated successfully');
                 // Clear form fields after successful update
@@ -93,7 +93,7 @@ const EditEmployee = () => {
                         onChange={handleChange}
                     />
                 </div>
-                <button type="submit" className="btn-form-edit-employee">Edit Employee</button>
+                <button type="submit" className="btn-form-add-restaurant">Edit Employee</button>
             </form>
             <Link to="/" className="link-return">Return to Restaurant List</Link>
         </div>
