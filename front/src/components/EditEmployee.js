@@ -16,6 +16,7 @@ const EditEmployee = () => {
             axios.get(`/employees/${idEmployee}`)
                 .then(response => {
                     const employeeData = response.data;
+                    console.log('employee data' + employeeData);
                     setEmployee({
                         firstName: employeeData.firstName || '',
                         lastName: employeeData.lastName || '',

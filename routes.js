@@ -1,11 +1,13 @@
 const express = require('express');
 const connection = require('./connexion');
 const mysql = require('mysql');
+const cors = require('cors');
 
 const app = express();
 
 // middleware pour que node puisse inerpreter le body json envoyé par Postman
 app.use(express.json());
+app.use(cors());
 
 // Route Home
 app.get('/', (req, res) => {
