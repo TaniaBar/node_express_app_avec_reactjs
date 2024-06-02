@@ -1,80 +1,80 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useParams } from 'react-router-dom';
 
-const EditEmployee = () => {
+export default function EditEmployee() {
     const { idEmployee } = useParams();
+    console.log('console employee id: ' + idEmployee);
+
     const [employee, setEmployee] = useState({
-        firstName: '',
-        lastName: '',
+        firstname: '',
+        lastname: '',
         hireDate: '',
         restaurantId: ''
     });
 
-    useEffect(() => {
-        if (idEmployee) {
-            axios.get(`/employees/${idEmployee}`)
-                .then(response => {
-                    const employeeData = response.data;
-                    console.log('employee data' + employeeData);
-                    setEmployee({
-                        firstName: employeeData.firstName || '',
-                        lastName: employeeData.lastName || '',
-                        hireDate: employeeData.hireDate || '',
-                        restaurantId: employeeData.restaurantId || ''
-                    });
-                })
-                .catch(error => console.error("Error fetching employee data:", error));
-        } else {
-            console.error("No employee ID found in URL parameters.");
-        }
-    }, [idEmployee]);
-    console.log("idEmployee:", idEmployee);
     const handleChange = (e) => {
-        const { name, value } = e.target;
-        setEmployee(prevState => ({
-            ...prevState,
-            [name]: value
-        }));
-    };
+        setEmployee({
+            ...employee,
+            [e.target.name]: e.target.value
+        });
+    }
 
-    const handleSubmit = (e) => {
+    useEffect(() => {
+        console.log(`Sending GET request to /employee/${idEmployee}`);
+        axios.get(`/employee/${idEmployee}`)
+        .then(response => {
+            console.log('Received response:', response);
+            const EmployeeData = response.data[0];
+            setEmployee({
+                firstname: EmployeeData.firstname,
+                lastname: EmployeeData.lastname,
+                hireDate: EmployeeData.hireDate,
+                restaurantId: EmployeeData.restaurantId
+            });
+        })
+        .catch(error => {
+            console.error('error occurred: ', error);
+        })
+    }, [idEmployee]);
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        axios.put(`/restaurant/:id/employees/${idEmployee}`, employee)
-            .then(response => {
-                alert('Employee updated successfully');
-                // Clear form fields after successful update
-                setEmployee({
-                    firstName: '',
-                    lastName: '',
-                    hireDate: '',
-                    restaurantId: ''
-                });
-            })
-            .catch(error => console.error("Error updating employee:", error));
-    };
+        const response = await axios.put(`http://localhost:5000/restaurant/${employee.restaurantId}/employee/${idEmployee}`, employee);
+
+        if(response.status === 200) {
+            console.log('put ok');
+        } else {
+            console.log('error put');
+        }
+    }
 
     return (
         <div className="div-form">
-            <form onSubmit={handleSubmit} className="form-container">
+            {employee.firstname ? (
+
+            
+            <form onSubmit={handleSubmit}>
                 <h1 className="form-title">Edit Employee</h1>
                 <div className="form-group">
-                    <label>First Name: </label>
+                    <label>Firstname: </label>
                     <input
                         type="text"
-                        name="firstName"
-                        value={employee.firstName}
+                        name="firstname"
+                        value={employee.firstname}
                         onChange={handleChange}
-                    />
+                        required
+                    ></input>
                 </div>
                 <div className="form-group">
-                    <label>Last Name: </label>
+                    <label>Lastname: </label>
                     <input
                         type="text"
-                        name="lastName"
-                        value={employee.lastName}
+                        name="lastname"
+                        value={employee.lastname}
                         onChange={handleChange}
-                    />
+                        required
+                    ></input>
                 </div>
                 <div className="form-group">
                     <label>Hire-date: </label>
@@ -83,7 +83,8 @@ const EditEmployee = () => {
                         name="hireDate"
                         value={employee.hireDate}
                         onChange={handleChange}
-                    />
+                        required
+                    ></input>
                 </div>
                 <div className="form-group">
                     <label>Restaurant: </label>
@@ -92,13 +93,15 @@ const EditEmployee = () => {
                         name="restaurant"
                         value={employee.restaurantId}
                         onChange={handleChange}
-                    />
+                        required
+                    ></input>
                 </div>
-                <button type="submit" className="btn-form-add-restaurant">Edit Employee</button>
+                <button type="submit">Edit Employee</button>
             </form>
+            ) : (
+                <p>...Loading</p>
+            )}
             <Link to="/" className="link-return">Return to Restaurant List</Link>
         </div>
     );
-};
-
-export default EditEmployee;
+}
