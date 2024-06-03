@@ -24,22 +24,6 @@ const RestaurantList = () => {
             <Link to="/add-restaurant" className='linkAddRestaurant'>Add Restaurant</Link>
             <Link to="/add-employee" className='linkAddEmployee'>Add Employee</Link>
 
-            {/* <table>
-                <thead>
-                    <tr>
-                        <th>Name</th>
-                        <th>City</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {restaurants.map(restaurants => (
-                        <tr key={restaurants.id}>
-                            <td>{restaurants.name}</td>
-                            <td>{restaurants.city}</td>
-                        </tr>
-                    ))}
-                </tbody>
-            </table> */}
             <div className='card-deck'>
                 {restaurants.map(restaurants => (
                     <RestaurantCard key={restaurants.id} restaurants={restaurants} />

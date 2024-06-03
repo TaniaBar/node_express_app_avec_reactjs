@@ -27,7 +27,7 @@ const RestaurantCard = ({ restaurants }) => {
     };
 
     function handleDeleteEmployee(employeeId) {
-        axios.delete(`/employee/${employeeId}`)
+        axios.delete(`/restaurant/${restaurants.id}/employees/${employeeId}`)
             .then(response => {
                 console.log("Employee deleted!", response.data);
                 setEmployees(employees.filter(employee => employee.id !== employeeId));
