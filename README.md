@@ -1,11 +1,12 @@
-# node_express_app
+# node_express_app_avec_react_js
 
-This is a simple exercise project to start using NodeJS. 
+This is a simple exercise project to start using NodeJS and ReactJs. 
 The project uses Express as the web framework and Nodemon for automatic server restarting during development and MySQL for database management.
 ## Installation
 
 I did an npm init in the project directory and then I taped the command npm install to install project dependencies (ex. npm install express, npm install mysql).
 To start the server I did an npm start.
+I create un dossier Front in the NodeJs projet, I did npm install and npm start to start the React development server.
 
 ## Project Structure
 The project is organized into the following files and folders:
