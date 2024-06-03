@@ -1,0 +1,35 @@
+.card {
+    border-style: solid;
+    border-color: grey;
+    border-width: 1px;
+    margin: 20px;
+    padding-bottom: 15px;
+    border-radius: 5px;
+  }
+  
+  .card-title {
+    font-size: 1.4em;
+    color: #282c34;
+  }
+  
+  .btn-danger {
+    margin: 5px;
+    color: rgb(138, 13, 13);
+    border-color: rgb(138, 13, 13);
+    border-width: 1px;
+    border-radius: 5px;
+    font-size: 1em;
+  }
+  
+  .btn-primary {
+    margin: 5px;
+    color: rgb(9, 105, 89);
+    border-color: rgb(9, 105, 89);
+    border-width: 1px;
+    border-radius: 5px;
+    font-size: 1em;
+  }
+  
+  .list-group {
+    list-style-type: none;
+  }

@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useParams, Link } from "react-router-dom";
+import '../style/EditRestaurant.css';
 
 export default function EditRestaurant() {
     const { id } = useParams();
@@ -108,7 +109,7 @@ export default function EditRestaurant() {
                             required
                         ></input>
                     </div>
-                    <button type="submit" className="btn-form-add-restaurant">Edit Restaurant</button>
+                    <button type="submit" className="btn-form-edit-restaurant">Edit Restaurant</button>
             </form>
             ) : (
                 <p>...Loading</p>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import './AddRestaurant.css';
+import '../style/AddRestaurant.css';
 import { Link } from "react-router-dom";
 
 const AddRestaurant = () => {

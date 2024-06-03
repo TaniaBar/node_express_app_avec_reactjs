@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { Link, useParams } from 'react-router-dom';
+import '../style/EditEmployee.css';
 
 export default function EditEmployee() {
     const { idEmployee, id } = useParams();
@@ -138,7 +139,7 @@ export default function EditEmployee() {
                         ))}
                     </select>
                 </div>
-                <button type="submit" className="btn-form-add-restaurant">Edit Employee</button>
+                <button type="submit" className="btn-form-edit-employee">Edit Employee</button>
             </form>
             ) : (
                 <p>...Loading</p>

@@ -2,6 +2,7 @@ import React, {useState, useEffect } from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import RestaurantCard from './RestaurantCard';
+import '../style/RestaurantList.css';
 
 const RestaurantList = () => {
     const [restaurants, setRestaurants] = useState([]);

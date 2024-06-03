@@ -1,0 +1,20 @@
+.restaurant-list {
+    margin: 20px;
+}
+
+.linkAddRestaurant {
+    color: rgb(192, 36, 36);
+    color: rgb(9, 105, 89);
+    margin-top: 20px;
+    text-transform: uppercase;
+    margin-right: 30px;
+  }
+  
+  .linkAddEmployee {
+    color: rgb(192, 36, 36);
+    color: rgb(9, 105, 89);
+    margin-top: 20px;
+    text-transform: uppercase;
+    margin-left: 30px;
+  }
+  
