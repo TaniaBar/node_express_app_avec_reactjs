@@ -170,13 +170,13 @@ app.get('/restaurant/:id/employees/:idEmployee', (req, res) => {
     res.status(200);
 });
 
-// Route PUT/restaurant/:idResto/employes/:idEmploye
+// Route PUT/restaurant/:idResto/employees/:idEmployee
 app.put('/restaurant/:id/employees/:idEmployee', (req, res) => {
     const id = parseInt(req.params.id);
-    const { first_name, last_name, hire_date} = req.body;
     const idEmployee = parseInt(req.params.idEmployee);
+    const { first_name, last_name, hire_date, restaurant_id} = req.body;
 
-    const updateEmployee = `UPDATE employes SET first_name='${first_name}', last_name='${last_name}', hire_date='${hire_date}' WHERE id=${idEmployee}`;
+    const updateEmployee = `UPDATE employes SET first_name='${first_name}', last_name='${last_name}', hire_date='${hire_date}', restaurant_id='${restaurant_id}' WHERE id=${idEmployee}`;
 
     connection.query(updateEmployee, function (err) {
         if (err) {

@@ -38,7 +38,7 @@ const RestaurantCard = ({ restaurants }) => {
     }
 
     function handleEditEmployee(employeeId) {
-        navigate(`/edit-employee/${employeeId}`);
+        navigate(`/restaurant/${restaurants.id}/edit-employee/${employeeId}`);
     }
 
     return (
